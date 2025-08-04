@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deals</title>
+</head>
+<body>
+ <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Обязательное</th>
+        <th>Только для чтения</th>
+        <th>Неизменяемое</th>
+        <th>Множественное</th>
+        <th>Динамическое</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for k, v in res.items %}
+      <tr>
+        <td>{{ k }}</td>
+        <td>{% if v.filterLabel == None %}{{ v.title }}{% else %}{{ v.filterLabel }}{% endif %}</td>
+        <td>{{ v.type }}</td>
+        <td>{{ v.isRequired }}</td>
+        <td>{{ v.isReadOnly }}</td>
+        <td>{{ v.isImmutable }}</td>
+        <td>{{ v.isMultiple }}</td>
+        <td>{{ v.isDynamic }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

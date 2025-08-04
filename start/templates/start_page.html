@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Демо приложение</title>
+    <style>
+        .container {
+          column-count: 3;
+        }
+    </style>
+</head>
+<body>
+<h1> Здравствуйте, {{ user.first_name }} {{ user.last_name}}</h1>
+
+<a href="{% url 'show_deals' %}"><p> Сделки</p></a>
+<a href="{% url 'create_deal' %}"><p> Создать сделку</p></a>
+</body>
+<script src="//api.bitrix24.com/api/v1/"></script>
+</html>

@@ -20,13 +20,14 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from deals.views import show_deals, create_deal
-from start.views.start import start
+from start.views.start import start, reload_start
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',start),
+    path('',start,name='start'),
+    path('',reload_start,name='reload_start'),
     path('deals/',show_deals,name='show_deals'),
-    path('create_deal',create_deal,name='create_deal')
+    path('create_deal/',create_deal,name='create_deal')
 
 
 

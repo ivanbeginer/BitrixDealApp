@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Deal</title>
+</head>
+<style>
+    .required {
+    display: none;
+    }
+</style>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Добавить </button>
+</form>
+<a href="{% url 'show_deals' %}"><p> Сделки</p></a>
+</body>
+</html>

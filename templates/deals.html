@@ -5,33 +5,38 @@
     <title>Deals</title>
 </head>
 <body>
- <table>
+
+    <table>
     <thead>
       <tr>
         <th>ID</th>
         <th>Название</th>
-        <th>Тип</th>
-        <th>Обязательное</th>
-        <th>Только для чтения</th>
-        <th>Неизменяемое</th>
-        <th>Множественное</th>
-        <th>Динамическое</th>
+        <th>Этап</th>
+        <th>Валюта</th>
+        <th>Стоимость</th>
+        <th>Начало</th>
+        <th>Конец</th>
       </tr>
     </thead>
     <tbody>
-      {% for k, v in res.items %}
-      <tr>
-        <td>{{ k }}</td>
-        <td>{% if v.filterLabel == None %}{{ v.title }}{% else %}{{ v.filterLabel }}{% endif %}</td>
-        <td>{{ v.type }}</td>
-        <td>{{ v.isRequired }}</td>
-        <td>{{ v.isReadOnly }}</td>
-        <td>{{ v.isImmutable }}</td>
-        <td>{{ v.isMultiple }}</td>
-        <td>{{ v.isDynamic }}</td>
-      </tr>
+      {% for deal in res %}
+
+          <tr>
+            <td>{{ deal.ID }}</td>
+            <td>{{ deal.TITLE }}</td>
+            <td>{{ deal.STAGE }}</td>
+            <td>{{ deal.CURRENCY_ID }}</td>
+            <td>{{ deal.OPPORTUNITY }}</td>
+            <td>{{ deal.BEGINDATE }}</td>
+            <td>{{ deal.CLOSEDATE }}</td>
+          </tr>
+
       {% endfor %}
     </tbody>
   </table>
+
+
+
 </body>
+<script src="//api.bitrix24.com/api/v1/"></script>
 </html>

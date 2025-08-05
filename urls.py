@@ -25,7 +25,7 @@ from start.views.start import start, reload_start
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',start,name='start'),
-    path('',reload_start,name='reload_start'),
+    path('reload/',reload_start,name='reload_start'),
     path('deals/',show_deals,name='show_deals'),
     path('create_deal/',create_deal,name='create_deal')
 

@@ -138,10 +138,20 @@ if not APP_SETTINGS:
         app_name='post_currency',
         salt='df897hynj4b34u804b5n45bkl4b',
         secret_key='sfjbh40989034nk4j4389tfj',
-        # application_bitrix_client_id='',
-        # application_bitrix_client_secret='',
+        application_bitrix_client_id='',
+        application_bitrix_client_secret='',
         application_index_path='/',
     )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'TIMEOUT': 300,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}

@@ -16,26 +16,28 @@
         <th>Стоимость</th>
         <th>Начало</th>
         <th>Конец</th>
+          <th> Способ оплаты</th>
       </tr>
     </thead>
     <tbody>
-      {% for deal in res %}
+      {% for deal in deals %}
 
           <tr>
             <td>{{ deal.ID }}</td>
             <td>{{ deal.TITLE }}</td>
-            <td>{{ deal.STAGE }}</td>
+            <td>{{ deal.STAGE_ID }}</td>
             <td>{{ deal.CURRENCY_ID }}</td>
             <td>{{ deal.OPPORTUNITY }}</td>
             <td>{{ deal.BEGINDATE }}</td>
             <td>{{ deal.CLOSEDATE }}</td>
+            <td>{{ deal.UF_CRM_USRFLD }}</td>
           </tr>
 
       {% endfor %}
     </tbody>
   </table>
 
-
+<a href="{% url 'reload_start' %}"><button> Главная</button></a>
 
 </body>
 <script src="//api.bitrix24.com/api/v1/"></script>

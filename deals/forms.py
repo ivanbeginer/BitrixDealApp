@@ -1,5 +1,5 @@
 from django import forms
-from django.forms.renderers import BaseRenderer
+
 
 from deals.methods import user
 

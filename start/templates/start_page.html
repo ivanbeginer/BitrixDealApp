@@ -10,10 +10,10 @@
     </style>
 </head>
 <body>
-<h1> Здравствуйте, {{ user.first_name }} {{ user.last_name}}</h1>
+<h1> Здравствуйте, {{ request.bitrix_user.first_name }} {{ request.bitrix_user.last_name}}</h1>
 
-<a href="{% url 'show_deals' %}"><p> Сделки</p></a>
-<a href="{% url 'create_deal' %}"><p> Создать сделку</p></a>
+<a href="{% url 'show_deals' %}"><button> Сделки</button></a>
+<a href="{% url 'create_deal' %}"><button> Создать сделку</button></a>
 </body>
 <script src="//api.bitrix24.com/api/v1/"></script>
 </html>

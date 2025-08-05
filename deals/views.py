@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.decorators.cache import cache_page
-from django.core.cache import cache
+
 from deals.forms import DealCreateForm, res_stages, stages
 from integration_utils.bitrix24.bitrix_user_auth.main_auth import main_auth
 
@@ -18,15 +17,16 @@ def show_deals(request):
             'OPPORTUNITY', 'CURRENCY_ID', 'UF_CRM_USRFLD'
         ],
         'order': {'BEGINDATE': 'DESC'}
-    })['result']
-    print(stages)
+    })['result'][:10]
+
 
 
     for deal in deals:
         deal['BEGINDATE']=deal['BEGINDATE'][:10]
         deal['CLOSEDATE']=deal['CLOSEDATE'][:10]
-    #add_field = user.call_api_method('crm.deal.userfield.add',params={'fields':{'USER_TYPE_ID':'string','FIELD_NAME':'UF_CRM_USRFLD','LIST':[{'KEY':'SBP','VALUE':'СБП'},{'KEY':'NAL','VALUE':'Наличные'},{'KEY':'CARD','VALUE':'Банковская карта'}]}})['result']
-    #change = user.call_api_method('crm.deal.userfield.delete',params={'id':241})
+
+    #add_field = user.call_api_method('crm.deal.userfield.add',params={'fields':{'USER_TYPE_ID':'string','FIELD_NAME':'UF_CRM_USRFLD'}})['result']
+    #change = user.call_api_method('crm.deal.userfield.delete',params={'id':245})
 
     # for deal in res:
     #     user.call_api_method('crm.deal.delete',params={'id':deal['ID']})
@@ -41,8 +41,7 @@ def create_deal(request):
     if request.method=='POST':
         if form.is_valid():
             data = form.cleaned_data
-            print(data['payment_method'])
-            print(res_stages)
+
             res = user.call_api_method('crm.deal.add',params={'fields':{
                 'TITLE':data['title'],
                 'STAGE_ID':data['stage'],

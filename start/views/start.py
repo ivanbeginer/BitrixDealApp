@@ -10,11 +10,10 @@ from integration_utils.bitrix24.models import BitrixUser
 def start(request):
     app_settings = settings.APP_SETTINGS
 
-    user = BitrixUser.objects.get(bitrix_id=request.bitrix_user.id)
     return render(request, 'start_page.html', locals())
 
 @main_auth(on_cookies=True)
 def reload_start(request):
     app_settings = settings.APP_SETTINGS
-    user = BitrixUser.objects.get(bitrix_id=request.bitrix_user.id)
+
     return render(request, 'start_page.html', locals())
